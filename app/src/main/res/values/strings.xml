@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Generation-C</string>
+    <string name="cars_screen_title">Welcome to Generation-C</string>
+    <string name="cars_screen_search_hint">Search</string>
+    <string name="cars_screen_clear">Clear</string>
+    <string name="cars_screen_color">Color: %s</string>
+    <string name="details_screen_title">Car Details</string>
+</resources>
