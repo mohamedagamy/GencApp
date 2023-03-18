@@ -164,17 +164,37 @@ fun ListItem(item: Car, onClick: (String) -> Unit) {
 
 @Composable
 fun BindList(list: List<Car>, onCarClick: (String) -> Unit) {
-    LazyColumn(contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp)) {
-        items(
-            items = list,
-            itemContent = {
-                ListItem(it, onClick = {
-                    it.let {
-                        onCarClick.invoke(it)
-                    }
+    if(list.isNotEmpty()) {
+        LazyColumn(contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp)) {
+            items(
+                items = list,
+                itemContent = {
+                    ListItem(it, onClick = {
+                        it.let {
+                            onCarClick.invoke(it)
+                        }
+                    })
                 })
-            })
+        }
+    }else{
+        EmptyView()
     }
 }
+
+@Composable
+fun EmptyView() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = stringResource(id = R.string.cars_no_match),
+            modifier = Modifier.padding(16.dp)
+        )
+    }
+    ShowToast(text = stringResource(id = R.string.cars_no_match))
+}
+
 
 

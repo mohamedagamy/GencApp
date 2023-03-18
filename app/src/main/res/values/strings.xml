@@ -5,4 +5,5 @@
     <string name="cars_screen_clear">Clear</string>
     <string name="cars_screen_color">Color: %s</string>
     <string name="details_screen_title">Car Details</string>
+    <string name="cars_no_match">There’s no car available with this criteria</string>
 </resources>

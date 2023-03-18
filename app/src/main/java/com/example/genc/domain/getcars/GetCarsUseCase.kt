@@ -36,6 +36,7 @@ class GetCarsUseCase @Inject constructor(
         response: Flow<List<Car>>,
         query: String,
     ): Flow<List<Car>> {
+        //Here we filter cars by color or price
         val filter = response.map { it.filter { car -> car.unit_price.toString().lowercase().contains(query) || car.color.lowercase().contains(query) } }
         return filter.map{car -> car}.flowOn(defaultDispatcher)
     }
